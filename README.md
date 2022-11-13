@@ -18,7 +18,9 @@ python tampers.py --data_path data/MR.csv --victim_model "textattack/bert-base-u
 
 ## Baselines
 To run the baselines, you can refer to [TextAttack](https://github.com/QData/TextAttack).
+
 Two issues should be claim here: 
 1.running bert attack will take long time in this package. See the issue [here](https://github.com/QData/TextAttack/issues/586). Therefore, we just follow the setting of
 [TextDefender](https://github.com/RockyLzy/TextDefender/blob/master/textattack/transformations/word_swap_masked_lm.py) and ignore word to replace is tokenized as multiple sub-words.
+
 2.Using USE to compute the semantic similarity, we correct the code. In the TextFooler and bert-attack code, they forget to divide the angle between the two embedding by pi. The correct computation should be: 1 - arccos(cosine_similarity(u, v)) / pi. See [here](https://math.stackexchange.com/questions/2874940/cosine-similarity-vs-angular-distance). 
