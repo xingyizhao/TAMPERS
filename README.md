@@ -15,3 +15,10 @@ python tampers.py --data_path data/MR.csv --victim_model "textattack/bert-base-u
 * --victim_model: You can find the fine tuned model from [textattack](https://huggingface.co/textattack). In our experiment, we use four fine tuned models corresponding to their dataset. [IMDB](https://huggingface.co/textattack/bert-base-uncased-imdb?text=I+like+you.+I+love+you), [MR](https://huggingface.co/textattack/bert-base-uncased-rotten-tomatoes?text=I+like+you.+I+love+you), [YELP](https://huggingface.co/textattack/bert-base-uncased-yelp-polarity?text=I+like+you.+I+love+you) and [SST2](https://huggingface.co/textattack/bert-base-uncased-SST-2?text=I+like+you.+I+love+you).   
 * --num: Number of text you want to attack.
 * --output_dir: Output file. You need to create an empty file first. 
+
+## Baselines
+To run the baselines, you can refer to [TextAttack](https://github.com/QData/TextAttack).
+Two issues should be claim here: 
+1.running bert attack will take long time in this package. See the issue [here](https://github.com/QData/TextAttack/issues/586). Therefore, we just follow the setting of
+[TextDefender](https://github.com/RockyLzy/TextDefender/blob/master/textattack/transformations/word_swap_masked_lm.py) and ignore word to replace is tokenized as multiple sub-words.
+2.Using USE to compute the semantic similarity, we correct the code. In the TextFooler and bert-attack code, they forget to divide the angle between the two embedding by pi. The correct computation should be: 1 - arccos(cosine_similarity(u, v)) / pi. See [here](https://math.stackexchange.com/questions/2874940/cosine-similarity-vs-angular-distance). 
