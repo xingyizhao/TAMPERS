@@ -25,3 +25,6 @@ Two issues should be claimed here:
 [TextDefender](https://github.com/RockyLzy/TextDefender/blob/master/textattack/transformations/word_swap_masked_lm.py) and ignore word to replace is tokenized as multiple sub-words.
 
 2.Using USE to compute the semantic similarity, we correct the code. In the TextFooler and bert-attack code, they forget to divide the angle between the two embedding by pi. The correct computation should be: 1 - arccos(cosine_similarity(u, v)) / pi. See [here](https://math.stackexchange.com/questions/2874940/cosine-similarity-vs-angular-distance). 
+
+## Demo of results:
+![image](https://user-images.githubusercontent.com/90595479/201507041-68df97c5-edb4-4626-a94d-bd3f92d38d47.png)
