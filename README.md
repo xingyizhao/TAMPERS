@@ -8,6 +8,7 @@ Xingyi zhao, Lu Zhang, Depeng Xu and Shuhan Yuan. 2022. **Generating Textual Adv
 * Python 3.8
 * PyTorch 1.11.0
 * transformers 4.20.1
+* cuda version 11.5
 
 ## Usage
 To craft adversarial examples based on TAMPERS, run(attack "textattack/bert-base-uncased-rotten-tomatoes" for example):
