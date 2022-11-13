@@ -11,7 +11,7 @@ To craft adversarial examples based on TAMPERS, run(attack "textattack/bert-base
 python tampers.py --data_path data/MR.csv --victim_model "textattack/bert-base-uncased-rotten-tomatoes" --num 1000 --output_dir attack_result/
 ```
 
-* --data_path: We take MR dataset for example. To reproduce our experiments, datasets can be find [TAMPERS](https://drive.google.com/drive/folders/1ZCwZj39bwE2goUFr8_UiDkfoRg_NMO7Q). For more dataset, you can check [TextFooler](https://github.com/jind11/TextFooler). **Our code is based on the binary classification task.**
+* --data_path: We take MR dataset for example. To reproduce our experiments, datasets can be find [TAMPERS](https://drive.google.com/drive/folders/1ZCwZj39bwE2goUFr8_UiDkfoRg_NMO7Q). For more datasets, you can check [TextFooler](https://github.com/jind11/TextFooler). **Our code is based on the binary classification task.**
 * --victim_model: You can find the fine tuned models from [huggingface-textattack](https://huggingface.co/textattack). In our experiments, we use four fine tuned models corresponding to their datasets. [IMDB](https://huggingface.co/textattack/bert-base-uncased-imdb?text=I+like+you.+I+love+you), [MR](https://huggingface.co/textattack/bert-base-uncased-rotten-tomatoes?text=I+like+you.+I+love+you), [YELP](https://huggingface.co/textattack/bert-base-uncased-yelp-polarity?text=I+like+you.+I+love+you) and [SST2](https://huggingface.co/textattack/bert-base-uncased-SST-2?text=I+like+you.+I+love+you).   
 * --num: Number of texts you want to attack.
 * --output_dir: Output file. You need to create an empty file at first. 
@@ -22,7 +22,7 @@ To run the baselines, you can refer to [TextAttack](https://github.com/QData/Tex
 Two issues should be claimed here: 
 
 1. Running bert attack will take long time in this package. See the issue [here](https://github.com/QData/TextAttack/issues/586). Therefore, we just follow the setting of
-[TextDefender](https://github.com/RockyLzy/TextDefender/blob/master/textattack/transformations/word_swap_masked_lm.py) and ignore word to replace is tokenized as multiple sub-words.
+[TextDefender](https://github.com/RockyLzy/TextDefender/blob/master/textattack/transformations/word_swap_masked_lm.py) and ignore word to replace tokenized as multiple sub-words.
 
 2. Using USE to compute the semantic similarity, we correct the code. In the TextFooler and bert-attack code, they forget to divide the angle between the two embedding by pi. The correct computation should be: **1 - arccos(cosine_similarity(u, v)) / pi**. See [here](https://math.stackexchange.com/questions/2874940/cosine-similarity-vs-angular-distance). 
 
