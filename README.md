@@ -37,3 +37,22 @@ We give a result for example(results are saved in attack_result), results below 
 ![image](https://user-images.githubusercontent.com/90595479/201507041-68df97c5-edb4-4626-a94d-bd3f92d38d47.png)
 
 ## Citation:
+@inproceedings{zhao-etal-2022-generating,
+    title = "Generating Textual Adversaries with Minimal Perturbation",
+    author = "Zhao, Xingyi  and
+      Zhang, Lu  and
+      Xu, Depeng  and
+      Yuan, Shuhan",
+    editor = "Goldberg, Yoav  and
+      Kozareva, Zornitsa  and
+      Zhang, Yue",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2022",
+    month = dec,
+    year = "2022",
+    address = "Abu Dhabi, United Arab Emirates",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.findings-emnlp.337",
+    doi = "10.18653/v1/2022.findings-emnlp.337",
+    pages = "4599--4606"
+}
+
